@@ -17,7 +17,6 @@
 		import { DeviceOrientationControls } from './jsm/controls/DeviceOrientationControls.js';
 
 		var camera, scene, renderer, controls;
-		var gyroscopeEnabled = false;
 
 		init();
 		animate();
@@ -35,7 +34,6 @@
 			geometry.scale(- 1, 1, 1);
 
 			var url = window.location.href.split('?tex=')[1];
-			console.log(url)
 			var material = new THREE.MeshBasicMaterial({
 				map: new THREE.TextureLoader().load(url)
 			});
@@ -49,16 +47,14 @@
 			document.body.appendChild(renderer.domElement);
 
 			window.addEventListener('resize', onWindowResize, false);
-			window.addEventListener('click', () => gyroscopeEnabled = true);
 		}
 
 		function animate() {
 
 			window.requestAnimationFrame(animate);
 
-			if (gyroscopeEnabled) {
-				controls.update();
-			}
+			controls.update();
+
 			renderer.render(scene, camera);
 
 		}
