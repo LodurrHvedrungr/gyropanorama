@@ -15,7 +15,7 @@ THREE.DeviceOrientationControls = function (object) {
 	this.enabled = true;
 
 	this.deviceOrientation = {};
-	this.screenOrientation = 0;
+	this.screenOrientation = 90;
 
 	this.alphaOffset = 0; // radians
 
@@ -59,9 +59,9 @@ THREE.DeviceOrientationControls = function (object) {
 
 	this.connect = function () {
 
-		onScreenOrientationChangeEvent(); // run once on load
+		// onScreenOrientationChangeEvent(); 
 
-		window.addEventListener('orientationchange', onScreenOrientationChangeEvent, false);
+		// window.addEventListener('orientationchange', onScreenOrientationChangeEvent, false);
 		window.addEventListener('deviceorientation', onDeviceOrientationChangeEvent, false);
 
 		scope.enabled = true;
