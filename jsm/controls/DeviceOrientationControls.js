@@ -70,7 +70,7 @@ THREE.DeviceOrientationControls = function (object) {
 
 	this.disconnect = function () {
 
-		window.removeEventListener('orientationchange', onScreenOrientationChangeEvent, false);
+		// window.removeEventListener('orientationchange', onScreenOrientationChangeEvent, false);
 		window.removeEventListener('deviceorientation', onDeviceOrientationChangeEvent, false);
 
 		scope.enabled = false;
