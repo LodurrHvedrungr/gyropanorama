@@ -8,7 +8,7 @@
 THREE.DeviceOrientationControls = function (object) {
 
 	var scope = this;
-
+	var t = false
 	this.object = object;
 	this.object.rotation.reorder('YXZ');
 
@@ -84,8 +84,13 @@ THREE.DeviceOrientationControls = function (object) {
 		var device = scope.deviceOrientation;
 
 		if (device) {
-
 			var alpha = device.alpha ? THREE.Math.degToRad(device.alpha) + scope.alphaOffset : 0; // Z
+			if (!t) {
+				alert(JSON.stringify(device.alpha))
+				alert(JSON.stringify(scope.alphaOffset))
+				alert(JSON.stringify(alpha))
+				t = true
+			}
 
 			var beta = device.beta ? THREE.Math.degToRad(device.beta) : 0; // X'
 
