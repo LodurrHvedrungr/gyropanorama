@@ -19,9 +19,7 @@
 		animate();
 
 		function init() {
-			var w = window.innerWidth;
-			var h = window.innerHeight;
-			camera = new THREE.PerspectiveCamera(75, w > h ? w / h : h / w, 1, 1100);
+			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
 
 			controls = new THREE.DeviceOrientationControls(camera);
 			scene = new THREE.Scene();
@@ -60,9 +58,7 @@
 		}
 
 		function onWindowResize() {
-			var w = window.innerWidth;
-			var h = window.innerHeight;
-			camera.aspect = w > h ? w / h : h / w;
+			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 
 			renderer.setSize(window.innerWidth, window.innerHeight);
