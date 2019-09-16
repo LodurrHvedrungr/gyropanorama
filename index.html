@@ -34,8 +34,12 @@
 			geometry.scale(- 1, 1, 1);
 
 			var url = window.location.href.split('?tex=')[1];
+			var tex = new THREE.TextureLoader().load(url)
+			console.log(tex)
+			tex.center.x = 0.5
+			tex.center.y = 0.5
 			var material = new THREE.MeshBasicMaterial({
-				map: new THREE.TextureLoader().load(url)
+				map: tex
 			});
 
 			var mesh = new THREE.Mesh(geometry, material);
@@ -47,7 +51,6 @@
 			document.body.appendChild(renderer.domElement);
 
 			window.addEventListener('resize', onWindowResize, false);
-			onWindowResize();
 		}
 
 		function animate() {
