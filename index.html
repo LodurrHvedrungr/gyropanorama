@@ -9,13 +9,10 @@
 </head>
 
 <body>
-
+	<!-- <script src="../build/three.module.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+	<script src="./jsm/controls/DeviceOrientationControls.js"></script>
 	<script type="module">
-
-		import * as THREE from '../build/three.module.js';
-
-		import { DeviceOrientationControls } from './jsm/controls/DeviceOrientationControls.js';
-
 		var camera, scene, renderer, controls;
 
 		init();
@@ -25,7 +22,7 @@
 
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1100);
 
-			controls = new DeviceOrientationControls(camera);
+			controls = new THREE.DeviceOrientationControls(camera);
 			scene = new THREE.Scene();
 
 			var geometry = new THREE.SphereBufferGeometry(500, 60, 40);
@@ -66,9 +63,6 @@
 		function onWindowResize() {
 
 			camera.aspect = window.innerWidth / window.innerHeight;
-			camera.rotation.x = 0;
-			camera.rotation.y = 0;
-			camera.rotation.z = 0;
 			camera.updateProjectionMatrix();
 
 			renderer.setSize(window.innerWidth, window.innerHeight);
