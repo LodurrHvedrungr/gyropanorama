@@ -20,6 +20,7 @@ THREE.DeviceOrientationControls = function (camera, autoConnect) {
 	else scope.deviceLandscapeAlphaOffset = 0;
 
 	var onDeviceChangeEvent = function (evt) {
+		console.log(evt)
 		var chkLimit = scope.stabilityChecks, chksDone = scope.checksDone;
 		if (chksDone < (chkLimit * 3)) {
 			if (chksDone > (chkLimit * 2) || (chksDone < chkLimit && (evt.beta < 88 || evt.beta > 92))) {
@@ -68,6 +69,7 @@ THREE.DeviceOrientationControls = function (camera, autoConnect) {
 	}());
 
 	scope.connect = function () {
+		console.log('connected')
 		onScreenChangeEvent(); // run once on load
 		window.addEventListener('orientationchange', onScreenChangeEvent, false);
 		window.addEventListener('deviceorientation', onDeviceChangeEvent, false);

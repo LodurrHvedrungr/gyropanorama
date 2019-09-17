@@ -31,7 +31,7 @@
 			var url = window.location.href.split('?tex=')[1];
 			var tex = new THREE.TextureLoader().load(url)
 			tex.center.x = 0.5
-			tex.center.y = 0
+			tex.center.y = 0.5
 			var material = new THREE.MeshBasicMaterial({
 				map: tex
 			});
